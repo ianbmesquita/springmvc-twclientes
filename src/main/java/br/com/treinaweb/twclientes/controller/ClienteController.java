@@ -54,6 +54,16 @@ public class ClienteController {
         return new ModelAndView("redirect:/cliente");
     }
 
+    @GetMapping("/{id}/editar")
+    public ModelAndView editar(@PathVariable Long id) {
+        Cliente cliente = clienteRepository.getById(id);
+
+        ModelAndView modelAndView = new ModelAndView("cliente/editar.html");
+        modelAndView.addObject("cliente", cliente);
+
+        return modelAndView;
+    }
+
     @GetMapping("/{id}/excluir")
     public ModelAndView excluir(@PathVariable Long id) {
         clienteRepository.deleteById(id);

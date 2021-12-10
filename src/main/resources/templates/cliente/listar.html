@@ -49,12 +49,14 @@
                     th:href="@{/cliente/{id} (id=${cliente.id}) }"
                   ></a>
                 </td>
-                <td
-                  th:text="${cliente.dataNascimento}"
-                ></td>
+                <td th:text="${cliente.dataNascimento}"></td>
                 <td th:text="${cliente.profissao}"></td>
                 <td>
-                  <a href="" class="btn btn-warning">Editar</a>
+                  <a
+                    class="btn btn-warning"
+                    th:href="@{/cliente/{id}/editar (id=${cliente.id})}"
+                    >Editar</a
+                  >
                   <a
                     class="btn btn-danger"
                     th:href="@{/cliente/{id}/excluir (id=${cliente.id})}"

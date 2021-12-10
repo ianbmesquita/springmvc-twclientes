@@ -44,10 +44,10 @@
               <tr th:each="cliente : ${clientes}">
                 <th scope="row" th:text="${cliente.id}"></th>
                 <td>
-                  <a 
-                    th:text="${cliente.nome}" 
+                  <a
+                    th:text="${cliente.nome}"
                     th:href="@{/cliente/{id} (id=${cliente.id}) }"
-                    ></a>
+                  ></a>
                 </td>
                 <td
                   th:text="${#dates.format(cliente.dataNascimento, 'dd-MM-yyyy')}"
@@ -55,7 +55,12 @@
                 <td th:text="${cliente.profissao}"></td>
                 <td>
                   <a href="" class="btn btn-warning">Editar</a>
-                  <a href="" class="btn btn-danger">Excluir</a>
+                  <a
+                    class="btn btn-danger"
+                    th:href="@{/cliente/{id}/excluir (id=${cliente.id})}"
+                    onclick="return confirm('Deseja realmente excluir esse cliente?');"
+                    >Excluir</a
+                  >
                 </td>
               </tr>
             </tbody>

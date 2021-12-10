@@ -38,4 +38,11 @@ public class ClienteController {
         return modelAndView;
     }
 
+    @GetMapping("/{id}/excluir")
+    public ModelAndView excluir(@PathVariable Long id) {
+        clienteRepository.deleteById(id);
+
+        return new ModelAndView("redirect:/cliente");
+    }
+
 }

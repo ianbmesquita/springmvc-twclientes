@@ -50,7 +50,7 @@
                   ></a>
                 </td>
                 <td
-                  th:text="${#dates.format(cliente.dataNascimento, 'dd-MM-yyyy')}"
+                  th:text="${cliente.dataNascimento}"
                 ></td>
                 <td th:text="${cliente.profissao}"></td>
                 <td>
@@ -70,7 +70,9 @@
 
       <div class="row mt-3">
         <div class="col-sm-12">
-          <a href="" class="btn btn-primary">Cadastrar novo cliente</a>
+          <a class="btn btn-primary" th:href="@{/cliente/cadastrar}"
+            >Cadastrar novo cliente</a
+          >
         </div>
       </div>
     </main>

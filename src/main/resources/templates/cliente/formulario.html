@@ -40,9 +40,8 @@
             <button
               class="btn btn-primary"
               type="submit"
-              th:text="${cliente.id == null ? 'Cadastrar' : 'Editar'}"
+              th:text="${cliente.id == null ? 'Cadastrar' : 'Alterar'}"
             >
-              Alterar
             </button>
             <a th:href="@{/cliente}" class="btn btn-primary">Voltar</a>
           </form>

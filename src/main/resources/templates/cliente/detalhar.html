@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html th:replace="~{layout :: layout (~{::title}, ~{::main})}">
   <head>
-    <title>Spring Fundamentos - Detalhes do Cliente</title>
+    <title th:text="#{detalhar.titulo}"></title>
   </head>
   <body>
     <main class="container">
       <div class="row">
         <div class="col-sm-12">
-          <h1>Detalhes do Cliente</h1>
+          <h1 th:text="#{detalhar.cabecalho}"></h1>
         </div>
       </div>
 
@@ -19,13 +19,15 @@
               <div class="row">
                 <div class="col-sm-9">
                   <p>
-                    <strong>Data Nascimento: </strong>
+                    <strong th:text="#{detalhar.label.dataNascimento}"></strong>
                     <span
                       th:text="${#temporals.format(cliente.dataNascimento, 'dd/MM/yyyy')}"
                     ></span>
                   </p>
                   <p>
-                    <strong>Profissão: </strong>
+                    <strong th:text="#{detalhar.label.profissao}"
+                      >Profissão:
+                    </strong>
                     <span th:text="${cliente.profissao}"></span>
                   </p>
                 </div>
@@ -33,12 +35,14 @@
                   <a
                     class="btn btn-warning"
                     th:href="@{/cliente/{id}/editar (id=${cliente.id})}"
+                    th:text="#{detalhar.acao.editar}"
                     >Editar</a
                   >
                   <a
                     class="btn btn-danger"
                     th:href="@{/cliente/{id}/excluir (id=${cliente.id})}"
                     onclick="return confirm('Deseja realmente excluir esse cliente?');"
+                    th:text="#{detalhar.acao.excluir}"
                     >Excluir</a
                   >
                 </div>
@@ -50,7 +54,12 @@
 
       <div class="row mt-3">
         <div class="col-sm-12">
-          <a th:href="@{/cliente}" class="btn btn-primary">Voltar</a>
+          <a
+            th:href="@{/cliente}"
+            class="btn btn-primary"
+            th:text="#{detalhar.acao.voltar}"
+            >Voltar</a
+          >
         </div>
       </div>
     </main>

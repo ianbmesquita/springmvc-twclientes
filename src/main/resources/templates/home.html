@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html th:replace="~{layout :: layout (~{::title}, ~{::main})}">
   <head>
-    <title>Spring Fundamentos</title>
+    <title th:text="#{home.titulo}"></title>
   </head>
   <body>
     <main class="container">
       <div class="row">
         <div class="col-sm-12">
-          <h1>Olá, Treinaweb</h1>
+          <h1 th:text="#{home.cabecalho}"></h1>
         </div>
       </div>
 
@@ -19,7 +19,7 @@
 
       <div class="row">
         <div class="col-sm-12">
-          <p>Lista de aulas</p>
+          <p th:text="#{home.lista.titulo}"></p>
           <ul>
             <li th:each="aula : ${aulas}" th:text="${aula}"></li>
           </ul>

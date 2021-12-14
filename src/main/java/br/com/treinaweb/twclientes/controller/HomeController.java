@@ -1,7 +1,11 @@
 package br.com.treinaweb.twclientes.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 // import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +19,16 @@ public class HomeController {
 
     // @RequestMapping(path = "/", method = RequestMethod.GET)
     @GetMapping("/")
-    private String home() {
+    private String home(ModelMap model) {
+        model.addAttribute("boasVindas", "Bem vindo ao curso de Spring com Thymeleaf");
+        
+        List<String> aulas = new ArrayList<>();
+        aulas.add("Aula 01 - Introdução");
+        aulas.add("Aula 02 - Template engines");
+        aulas.add("Aula 03 - Arquivos estáticos");
+
+        model.addAttribute("aulas", aulas);
+
         return "home";
     }
 

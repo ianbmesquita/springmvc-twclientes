@@ -12,8 +12,11 @@
       crossorigin="anonymous"
     /> -->
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-
-    <title>Spring Fundamentos - Cadastro de Cliente</title>
+    
+    <title th:text="${cliente.id == null ? 
+        'Spring Fundamentos - Cadastro de Cliente' : 
+        'Spring Fundamentos - Edição de Cliente'}">
+    </title>
   </head>
   <body>
     <nav class="navbar navbar-light bg-light">
@@ -25,7 +28,10 @@
     <main class="container">
       <div class="row">
         <div class="col-sm-12">
-          <h1>Cadastro de Cliente</h1>
+          <h1 th:text="${cliente.id == null ? 
+            'Cadastro de Cliente' : 
+            'Edição de Cliente'}">
+          </h1>
         </div>
       </div>
 
@@ -35,6 +41,8 @@
             method="post"
             th:object="${cliente}"
           >
+            <input type="hidden" th:field="*{id}">
+
             <div class="mb-3">
               <label for="nome" class="form-label">Nome:</label>
               <input
@@ -70,7 +78,7 @@
               />
             </div>
 
-            <button class="btn btn-primary" type="submit">Cadastrar</button>
+            <button class="btn btn-primary" type="submit">Alterar</button>
             <a th:href="@{/cliente}" class="btn btn-primary">Voltar</a>
           </form>
         </div>

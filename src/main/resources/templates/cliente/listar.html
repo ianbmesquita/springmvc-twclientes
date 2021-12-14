@@ -31,7 +31,13 @@
 
       <div class="row mt-5">
         <div class="col-sm-12">
-          <table class="table">
+           <!-- <h5 th:if="${clientes.size == 0}">Não há clientes cadastrados no momento</h5> -->
+           <h5 th:if="${#lists.isEmpty(clientes)}">Não há clientes cadastrados no momento</h5>
+
+          <!-- <table class="table" th:if="${! #lists.isEmpty(clientes)}"> -->
+          <!-- <table class="table" th:if="${not #lists.isEmpty(clientes)}"> -->
+          <!-- O th:unless trabalha como o contrário do th:if - apresenta se o valor for false -->
+          <table class="table" th:unless="${#lists.isEmpty(clientes)}">
             <thead>
               <tr>
                 <th scope="col">#</th>
